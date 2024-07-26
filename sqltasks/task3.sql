@@ -1,0 +1,148 @@
+CREATE TABLE show_room (id INT NOT NULL UNIQUE,name VARCHAR(100) UNIQUE,location VARCHAR(255) NOT NULL,capacity INT CHECK(capacity>10 and capacity<100),
+    available BOOLEAN ,manager_name VARCHAR(100),contact_number BIGINT CHECK(contact_number>9000000),opening_time TIME,closing_time TIME,
+    description VARCHAR(20));
+DESC show_room;
+drop table show_room;
+INSERT INTO show_room VALUES(1,'Luxury Autos','MG Road, Bengaluru', 50, TRUE, 'Aarav Sharma', 9876543210, '09:00:00', '18:00:00', 'Luxury Cars');
+INSERT INTO show_room VALUES(2,'Eco Wheels','Park Street, Kolkata', 20, FALSE, 'Isha Patel', 8765432109, '09:00:00', '18:00:00', 'Electric Cars');
+INSERT INTO show_room VALUES(3,'Classic Rides','Marine Drive, Mumbai', 30, TRUE, 'Rohit Verma', 7654321098, '09:00:00', '18:00:00', 'Classic Cars');
+INSERT INTO show_room VALUES(4,'Speed Demons','Connaught Place, Delhi', 40, TRUE, 'Priya Nair', 6543210987, '09:00:00', '18:00:00', 'Sports Cars');
+INSERT INTO show_room VALUES(5,'Family Motors','Anna Salai, Chennai', 25, FALSE, 'Vikram Singh', 9432109876, '09:00:00', '18:00:00', 'Family Cars');
+INSERT INTO show_room VALUES(6,'Urban Autos','Banjara Hills, Hyderabad', 35, TRUE, 'Sneha Rao', 9321098765, '09:00:00', '18:00:00', 'City Cars');
+INSERT INTO show_room VALUES(7,'Mountain Motors','Mall Road, Shimla', 45, TRUE, 'Karan Joshi', 6210987654, '09:00:00', '18:00:00', 'SUVs');
+INSERT INTO show_room VALUES(8,'Coastal Cruisers','Beach Road,Visakhapatnam', 55, FALSE, 'Ananya Gupta', 9109876543, '09:00:00', '18:00:00', 'Beach Cars');
+INSERT INTO show_room VALUES(9,'Luxury Rides','Race Course Road,Coimbatore', 60, TRUE, 'Arjun Reddy', 9098765432, '09:00:00', '18:00:00', 'Luxury Cars');
+INSERT INTO show_room VALUES(10,'Green Machines','Koregaon Park,Pune', 65, TRUE, 'Diya Mehta', 6987654321, '09:00:00', '18:00:00', 'Hybrid Cars');
+INSERT INTO show_room VALUES(11,'Vintage Vehicles','Lalbagh Road,Bengaluru', 70, FALSE, 'Manish Kapoor', 9876543210, '09:00:00', '18:00:00', 'Vintage Cars');
+INSERT INTO show_room VALUES(12,'Modern Motors','Hitech City,Hyderabad', 75, TRUE, 'Anita Desai', 9765432109, '09:00:00', '18:00:00', 'Modern Cars');
+INSERT INTO show_room VALUES(13,'All-Terrain Autos','Mount Road,Chennai', 80, TRUE, 'Sandeep Kumar', 6654321098, '09:00:00', '18:00:00', 'All-Terrain');
+INSERT INTO show_room VALUES(14,'Sunset Rides','Juhu Beach,Mumbai', 85, FALSE, 'Meera Shah', 9543210987, '09:00:00', '18:00:00', 'Convertibles');
+INSERT INTO show_room VALUES(15,'Rural Rides','NH-44,Amritsar', 90, TRUE, 'Nikhil Aggarwal', 6432109876, '09:00:00', '18:00:00', 'Rural Cars');
+INSERT INTO show_room VALUES(16,'City Cruisers','Brigade Road,Bengaluru', 95, TRUE, 'Rhea Banerjee', 7321098765, '09:00:00', '18:00:00', 'City Cars');
+INSERT INTO show_room VALUES(17,'Suburban Autos','Gariahat,Kolkata', 12, FALSE, 'Sameer Tiwari', 8210987654, '09:00:00', '18:00:00', 'Suburban');
+INSERT INTO show_room VALUES(18,'Economy Rides','Kalyani Nagar,Pune', 15, TRUE, 'Lavanya Pillai', 9109876543, '09:00:00', '18:00:00', 'Economy Cars');
+INSERT INTO show_room VALUES(19,'Lux Rides','Sector 17,Chandigarh', 18, TRUE, 'Aditya Khanna', 9098765431, '09:00:00', '18:00:00', 'Luxury Cars');
+INSERT INTO show_room VALUES(20,'Future Autos','Cyber Hub,Gurgaon', 22, FALSE, 'Maya Chawla', 9109876542, '09:00:00', '18:00:00', 'Future Cars');
+SELECT * FROM show_room;
+DESC show_room;
+ALTER TABLE show_room MODIFY COLUMN name VARCHAR(20) NOT NULL;
+ALTER TABLE show_room ADD CONSTRAINT location_uni UNIQUE(location);
+ALTER TABLE show_room ADD CONSTRAINT id_chk CHECK(id<30);
+ALTER TABLE show_room ADD CONSTRAINT capacity_chk CHECK(capacity<300);
+
+CREATE TABLE chat_center(id INT NOT NULL UNIQUE,name VARCHAR(100) NOT NULL,location VARCHAR(255),owner_name VARCHAR(100),contact_number BIGINT UNIQUE CHECK (contact_number>1000000),
+opening_time TIME,closing_time TIME,total_agents INT CHECK(total_agents>3),days_open INT,established_date DATE);
+DESC chat_center; 
+INSERT INTO chat_center VALUES(1,'Pani Puri Chat Center', 'Mumbai', 'Rajesh Sharma', 9123456789, '09:00:00', '18:00:00', 20, 7, '2010-05-12');
+INSERT INTO chat_center VALUES(2,'Samosa Chat Services', 'Delhi', 'Suman Patel', 9234567890, '08:00:00', '17:00:00', 15, 6, '2012-06-15');
+INSERT INTO chat_center VALUES(3,'Vada Pav Chat Hub', 'Bangalore', 'Vikram Das', 9345678901, '10:00:00', '19:00:00', 25, 7, '2014-08-22');
+INSERT INTO chat_center VALUES(4,'Bhel Puri Chat Solutions', 'Chennai', 'Anita Nair', 9456789012, '09:30:00', '18:30:00', 18, 5, '2015-03-18');
+INSERT INTO chat_center VALUES(5,'Dosa Chat', 'Hyderabad', 'Arjun Rao', 9567890123, '09:00:00', '18:00:00', 22, 7, '2016-11-09');
+INSERT INTO chat_center VALUES(6,'Chole Bhature Chat Center', 'Pune', 'Neha Kapoor', 9678901234, '08:30:00', '17:30:00', 16, 6, '2017-02-14');
+INSERT INTO chat_center VALUES(7,'Pakora Chat Services', 'Kolkata', 'Rahul Sen', 9789012345, '09:00:00', '18:00:00', 19, 7, '2018-07-21');
+INSERT INTO chat_center VALUES(8,'Pav Bhaji Chat Hub', 'Ahmedabad', 'Meera Shah', 9890123456, '10:00:00', '19:00:00', 24, 7, '2019-05-30');
+INSERT INTO chat_center VALUES(9,'Sev Puri Chat Solutions', 'Jaipur', 'Sunil Mehta', 9012345678, '09:30:00', '18:30:00', 21, 6, '2020-01-10');
+INSERT INTO chat_center VALUES(10,'Dahi Puri Chat', 'Lucknow', 'Ayesha Khan', 9123456701, '08:00:00', '17:00:00', 17, 7, '2021-03-05');
+INSERT INTO chat_center VALUES(11,'Aloo Tikki Chat Center', 'Chandigarh', 'Karan Singh', 9234567802, '09:00:00', '18:00:00', 23, 6, '2022-10-11');
+INSERT INTO chat_center VALUES(12,'Kachori Chat Services', 'Surat', 'Nidhi Desai', 9345678903, '09:30:00', '18:30:00', 20, 7, '2023-06-17');
+INSERT INTO chat_center VALUES(13,'Dabeli Chat Hub', 'Indore', 'Amit Joshi', 9456789014, '10:00:00', '19:00:00', 25, 7, '2014-09-21');
+INSERT INTO chat_center VALUES(14,'Aloo Chaat Chat Solutions', 'Bhopal', 'Pooja Gupta', 9567890125, '09:00:00', '18:00:00', 18, 5, '2015-12-15');
+INSERT INTO chat_center VALUES(15,'Chana Chaat Chat', 'Thiruvananthapuram', 'Santosh Kumar', 9678901236, '08:30:00', '17:30:00', 22, 6, '2016-11-25');
+INSERT INTO chat_center VALUES(16,'Momos Chat Center', 'Kanpur', 'Preeti Reddy', 9789012347, '09:00:00', '18:00:00', 16, 7, '2017-05-05');
+INSERT INTO chat_center VALUES(17,'Gol Gappa Chat Services', 'Nagpur', 'Siddharth Jain', 9890123458, '10:00:00', '19:00:00', 19, 7, '2018-08-14');
+INSERT INTO chat_center VALUES(18,'Chole Kulche Chat Hub', 'Patna', 'Rina Das', 9012345679, '09:30:00', '18:30:00', 24, 7, '2019-12-31');
+INSERT INTO chat_center VALUES(19,'Masala Puri Chat Solutions', 'Vishakhapatnam', 'Arnav Malhotra', 9123456782, '08:00:00', '17:00:00', 21, 6, '2020-04-28');
+INSERT INTO chat_center VALUES(20,'Dahi Bhalla Chat', 'Coimbatore', 'Anjali Iyer', 9234567803, '09:00:00', '18:00:00', 17, 7, '2021-09-19');
+DESC chat_center;
+ALTER TABLE chat_center MODIFY COLUMN location VARCHAR(200) NOT NULL;
+ALTER TABLE chat_center ADD CONSTRAINT name_uni UNIQUE(name);
+ALTER TABLE chat_center ADD CONSTRAINT id_ch1 CHECK(id>0),ADD CONSTRAINT days_open_ch1 CHECK(days_open>1);
+
+CREATE TABLE temple_info (id INT NOT NULL UNIQUE,name VARCHAR(100) NOT NULL,location VARCHAR(255),deity VARCHAR(100),
+    established_year INT,contact_number BIGINT UNIQUE CHECK (contact_number > 1000000),entry_fee Int CHECK(entry_fee >50),opening_time TIME,
+    closing_time TIME,daily_visitors INT CHECK (daily_visitors >= 0));
+DESC temple_info;
+INSERT INTO temple_info VALUES(1,'Tirupati Balaji Temple', 'Tirupati, Andhra Pradesh', 'Venkateswara', 300, 919876543210, 100, '04:00:00', '22:00:00', 50000);
+INSERT INTO temple_info VALUES(2,'Vaishno Devi Temple', 'Katra, Jammu and Kashmir', 'Vaishno Devi', 700, 919876543211, 150, '05:00:00', '21:00:00', 30000);
+INSERT INTO temple_info VALUES(3,'Shirdi Sai Baba Temple', 'Shirdi, Maharashtra', 'Sai Baba', 1922, 919876543212, 200, '04:00:00', '23:00:00', 60000);
+INSERT INTO temple_info VALUES(4,'Golden Temple', 'Amritsar, Punjab', 'Guru Granth Sahib', 1581, 919876543213, 50, '03:00:00', '22:00:00', 75000);
+INSERT INTO temple_info VALUES(5,'Meenakshi Temple', 'Madurai, Tamil Nadu', 'Meenakshi', 1623, 919876543214, 100, '05:00:00', '21:00:00', 40000);
+INSERT INTO temple_info VALUES(6,'Somnath Temple', 'Somnath, Gujarat', 'Shiva', -200, 919876543215, 150, '06:00:00', '22:00:00', 20000);
+INSERT INTO temple_info VALUES(7,'Kashi Vishwanath Temple', 'Varanasi, Uttar Pradesh', 'Vishwanath', 1777, 919876543216, 200, '03:00:00', '23:00:00', 50000);
+INSERT INTO temple_info VALUES(8,'Siddhivinayak Temple', 'Mumbai, Maharashtra', 'Ganesha', 1801, 919876543217, 100, '05:00:00', '21:00:00', 40000);
+INSERT INTO temple_info VALUES(9,'Jagannath Temple', 'Puri, Odisha', 'Jagannath', 1198, 919876543218, 150, '06:00:00', '22:00:00', 60000);
+INSERT INTO temple_info VALUES(10,'Kamakhya Temple', 'Guwahati, Assam', 'Kamakhya', 1565, 919876543219, 100, '05:00:00', '20:00:00', 20000);
+INSERT INTO temple_info VALUES(11,'Akshardham Temple', 'Delhi', 'Swaminarayan', 2005, 919876543220, 150, '09:00:00', '19:00:00', 30000);
+INSERT INTO temple_info VALUES(12,'Ramanathaswamy Temple', 'Rameswaram, Tamil Nadu', 'Rama', 1713, 919876543221, 200, '04:00:00', '22:00:00', 25000);
+INSERT INTO temple_info VALUES(13,'Badrinath Temple', 'Badrinath, Uttarakhand', 'Vishnu', 814, 919876543222, 100, '06:00:00', '20:00:00', 15000);
+INSERT INTO temple_info VALUES(14,'Lingaraj Temple', 'Bhubaneswar, Odisha', 'Shiva', 1090, 919876543223, 150, '05:00:00', '21:00:00', 20000);
+INSERT INTO temple_info VALUES(15,'Mahabodhi Temple', 'Bodh Gaya, Bihar', 'Buddha', 260, 919876543224, 200, '06:00:00', '21:00:00', 25000);
+INSERT INTO temple_info VALUES(16,'Virupaksha Temple', 'Hampi, Karnataka', 'Shiva', 745, 919876543225, 100, '06:00:00', '21:00:00', 15000);
+INSERT INTO temple_info VALUES(17,'Kedarnath Temple', 'Kedarnath, Uttarakhand', 'Shiva', 819, 919876543226, 150, '04:00:00', '20:00:00', 10000);
+INSERT INTO temple_info VALUES(18,'Dwarkadhish Temple', 'Dwarka, Gujarat', 'Krishna', 220, 919876543227, 200, '06:00:00', '21:00:00', 30000);
+INSERT INTO temple_info VALUES(19,'Ranakpur Temple', 'Ranakpur, Rajasthan', 'Adinath', 1437, 919876543228, 100, '06:00:00', '20:00:00', 10000);
+INSERT INTO temple_info VALUES(20,'Yamunotri Temple', 'Yamunotri, Uttarakhand', 'Yamuna', 1839, 919876543229, 150, '05:00:00', '19:00:00', 5000);
+DESC temple_info;
+ALTER TABLE temple_info MODIFY COLUMN established_year INT NOT NULL;
+ALTER TABLE temple_info ADD CONSTRAINT deity_uni UNIQUE(deity);
+ALTER TABLE temple_info ADD CONSTRAINT id_chk1 CHECK(id>30);
+ALTER TABLE temple_info ADD CONSTRAINT established_year_chk CHECK(established_year>1000);
+
+CREATE TABLE market_info (id INT NOT NULL UNIQUE,name VARCHAR(100),location VARCHAR(255) NOT NULL,market_type VARCHAR(100),owner_name VARCHAR(100),
+    established_year INT UNIQUE,opening_time TIME,closing_time TIME,daily_visitors INT CHECK (daily_visitors >= 0),number_of_stalls INT CHECK (number_of_stalls >= 0));
+DESC market_info;
+
+INSERT INTO market_info VALUES(1,'Crawford Market', 'Mumbai, Maharashtra', 'Wholesale', 'Rajesh Kumar', 1869, '06:00:00', '20:00:00', 10000, 500);
+INSERT INTO market_info VALUES(2, 'Chandni Chowk Market', 'Delhi', 'Retail', 'Suman Gupta', 1650, '07:00:00', '22:00:00', 15000, 600);
+INSERT INTO market_info VALUES(3, 'Russell Market', 'Bangalore, Karnataka', 'Mixed', 'Vikram Das', 1927, '06:30:00', '21:30:00', 8000, 400);
+INSERT INTO market_info VALUES(4, 'Charminar Bazaar', 'Hyderabad, Telangana', 'Retail', 'Anita Reddy', 1591, '08:00:00', '22:30:00', 12000, 700);
+INSERT INTO market_info VALUES(5, 'New Market', 'Kolkata, West Bengal', 'Retail', 'Arjun Sen', 1874, '06:00:00', '21:00:00', 11000, 550);
+INSERT INTO market_info VALUES(6, 'Pondy Bazaar', 'Chennai, Tamil Nadu', 'Retail', 'Neha Nair', 1933, '07:00:00', '23:00:00', 9000, 450);
+INSERT INTO market_info VALUES(7, 'Laad Bazaar', 'Hyderabad, Telangana', 'Jewelry', 'Rahul Khan', 1671, '10:00:00', '21:00:00', 8000, 300);
+INSERT INTO market_info VALUES(8, 'Devaraja Market', 'Mysore, Karnataka', 'Retail', 'Meera Iyer', 1900, '07:30:00', '20:30:00', 7000, 350);
+INSERT INTO market_info VALUES(9, 'Sarojini Nagar Market', 'Delhi', 'Retail', 'Sunil Mehta', 1950, '09:00:00', '21:00:00', 14000, 650);
+INSERT INTO market_info VALUES(10, 'Mahidharpura Diamond Market', 'Surat, Gujarat', 'Wholesale', 'Ayesha Patel', 1960, '08:00:00', '20:00:00', 5000, 200);
+INSERT INTO market_info VALUES(11, 'Kannauj Market', 'Kannauj, Uttar Pradesh', 'Fragrance', 'Karan Singh', 1800, '08:30:00', '19:30:00', 6000, 250);
+INSERT INTO market_info VALUES(12, 'Anjuna Flea Market', 'Anjuna, Goa', 'Flea', 'Nidhi Desai', 1980, '06:00:00', '18:00:00', 4000, 300);
+INSERT INTO market_info VALUES(13, 'Sardar Market', 'Jodhpur, Rajasthan', 'Mixed', 'Amit Joshi', 1937, '07:00:00', '21:00:00', 8000, 450);
+INSERT INTO market_info VALUES(14, 'MG Road', 'Pune, Maharashtra', 'Retail', 'Pooja Gupta', 1959, '09:00:00', '22:00:00', 10000, 500);
+INSERT INTO market_info VALUES(15, 'Chor Bazaar', 'Mumbai, Maharashtra', 'Antique', 'Santosh Kumar', 1860, '11:00:00', '20:00:00', 7000, 350);
+INSERT INTO market_info VALUES(16, 'Gandhi Market', 'Tiruchirappalli, Tamil Nadu', 'Mixed', 'Preeti Reddy', 1928, '08:00:00', '21:00:00', 6000, 400);
+INSERT INTO market_info VALUES(17, 'Manek Chowk', 'Ahmedabad, Gujarat', 'Mixed', 'Siddharth Jain', 1934, '07:00:00', '22:00:00', 12000, 550);
+INSERT INTO market_info VALUES(18, 'Lal Chowk', 'Srinagar, Jammu and Kashmir', 'Retail', 'Rina Das', 1801, '09:00:00', '20:00:00', 5000, 250);
+INSERT INTO market_info VALUES(19, 'Janpath Market', 'Delhi', 'Retail', 'Arnav Malhotra', 1951, '10:00:00', '21:00:00', 9000, 400);
+INSERT INTO market_info VALUES(20, 'Shilparamam', 'Hyderabad, Telangana', 'Handicrafts', 'Anjali Iyer', 1992, '11:00:00', '20:00:00', 8000, 350);
+DESC market_info;
+ALTER TABLE market_info MODIFY COLUMN name VARCHAR(100) NOT NULL;
+ALTER TABLE market_info ADD CONSTRAINT name_uni UNIQUE(name);
+ALTER TABLE market_info ADD CONSTRAINT established_year_chk1 CHECK(established_year>200);
+ALTER TABLE market_info ADD CONSTRAINT id_chk2 CHECK(id<30);
+
+CREATE TABLE metro_info (id INT NOT NULL UNIQUE,name VARCHAR(100) UNIQUE,city VARCHAR(100) NOT NULL,country VARCHAR(100),
+    opened_year INT,number_of_lines INT CHECK (number_of_lines > 0),number_of_stations INT,daily_ridership INT,
+    total_length_km FLOAT CHECK (total_length_km > 0),operational_hours VARCHAR(50));
+DESC metro_info;
+INSERT INTO metro_info VALUES(1,'Delhi Metro', 'Delhi', 'India', 2002, 11, 285, 2700000, 390.14, '05:00-23:30');
+INSERT INTO metro_info VALUES(2,'Mumbai Metro', 'Mumbai', 'India', 2014, 3, 14, 400000, 42.3, '05:30-23:30');
+INSERT INTO metro_info VALUES(3,'Bangalore Metro', 'Bangalore', 'India', 2011, 2, 51, 450000, 42.3, '05:00-23:00');
+INSERT INTO metro_info VALUES(4,'Chennai Metro', 'Chennai', 'India', 2015, 2, 45, 250000, 45.1, '05:00-23:00');
+INSERT INTO metro_info VALUES(5,'Kolkata Metro','Kolkata','India', 1984, 2,33,700000,33.02,'06:00-22:30');
+INSERT INTO metro_info VALUES(6,'Hyderabad Metro','Hyderabad', 'India', 2017, 3, 57, 400000,69.2,'06:00-22:00');
+INSERT INTO metro_info VALUES(7,'Lucknow Metro','Lucknow','India',2017,1,21,200000, 22.88,'06:00-22:00');
+INSERT INTO metro_info VALUES(8,'Kochi Metro','Kochi','India',2017,1,24,100000,25.16,'06:00-22:00');
+INSERT INTO metro_info VALUES(9,'Jaipur Metro','Jaipur','India', 2015, 1, 11, 100000,11.97,'06:00-22:00');
+INSERT INTO metro_info VALUES(10,'Noida Metro','Noida','India',2019, 1, 21, 80000, 29.7, '06:00-22:00');
+INSERT INTO metro_info VALUES(11,'Gurgaon Rapid Metro','Gurgaon','India',2013, 1, 11,50000, 11.7, '06:00-22:00');
+INSERT INTO metro_info VALUES(12,'Nagpur Metro','Nagpur','India',2019, 2, 38, 100000, 42.0, '06:00-22:00');
+INSERT INTO metro_info VALUES(13,'Ahmedabad Metro','Ahmedabad', 'India',2019,1,6, 50000, 6.5, '06:00-22:00');
+INSERT INTO metro_info VALUES(14,'Pune Metro', 'Pune','India', 2022,2,30, 150000,33.1,'05:00-23:00');
+INSERT INTO metro_info VALUES(15,'Kanpur Metro','Kanpur','India',2021, 1, 9,200000, 8.6,'06:00-22:00');
+INSERT INTO metro_info VALUES(16,'Bhopal Metro','Bhopal','India',2023, 1, 7,50000,6.5,'06:00-22:00');
+INSERT INTO metro_info VALUES(17,'Patna Metro','Patna','India', 2025, 2, 33,150000,30.0,'06:00-22:00');
+INSERT INTO metro_info VALUES(18,'Indore Metro','Indore','India', 2025, 1, 29,100000,31.5,'06:00-22:00');
+INSERT INTO metro_info VALUES(19,'Surat Metro','Surat','India',2025, 2,38, 200000,40.35,'06:00-22:00');
+INSERT INTO metro_info VALUES(20,'Coimbatore Metro','Coimbatore','India',2027, 1,20,75000,25.0,'06:00-22:00');
+ALTER TABLE metro_info MODIFY COLUMN name VARCHAR(100) NOT null;
+ALTER TABLE metro_info ADD CONSTRAINT name_uni UNIQUE(name);
+ALTER TABLE metro_info ADD CONSTRAINT opened_year_chk2 CHECK(opened_year>1800);
+ALTER TABLE metro_info ADD CONSTRAINT id_ch CHECK(id<30);
