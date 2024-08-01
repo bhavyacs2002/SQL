@@ -7,23 +7,29 @@ INSERT INTO LLR_info VALUES(2,'Jane', 'Smith', '1990-07-22', 60000, TRUE, '456 O
 INSERT INTO LLR_info VALUES(3,'Alice', 'Johnson', '1982-10-05', 62000, FALSE, '789 Pine St',now(), 'Female', 3);
 INSERT INTO LLR_info VALUES(4,'Bob', 'Brown', '1978-03-12', 70000, TRUE, '321 Maple St',now(), 'Male',4);
 INSERT INTO LLR_info VALUES(5,'Charlie', 'Davis', '1995-11-30', 50000, TRUE, '654 Cedar St',now(), 'Male',2);
-INSERT INTO LLR_info VALUES(6,'Emily', 'Wilson', '1988-04-25', 65000, TRUE, '987 Birch St',now(), 'Female',5);
-INSERT INTO LLR_info VALUES(7,'David','Miller', '1992-01-18', 48000, TRUE, '159 Spruce St',now(), 'Male', 4);
-INSERT INTO LLR_info VALUES(8,'Sophia','Garcia', '1980-12-12', 55000, FALSE, '753 Willow St',now(), 'Female',3);
-INSERT INTO LLR_info VALUES(9,'Michael','Martinez', '1987-08-08', 70000, TRUE, '864 Fir St',now(), 'Male',5);
-INSERT INTO LLR_info VALUES(10,'Olivia','Rodriguez', '1993-09-21', 57000, TRUE, '951 Elm St',now(), 'Female',4);
-INSERT INTO LLR_info VALUES(11,'James','Hernandez', '1984-06-30', 65000, FALSE, '258 Oak St',now(), 'Male',3);
-INSERT INTO LLR_info VALUES(12,'Ava','Lopez', '1991-05-15', 54000, TRUE, '369 Pine St',now(), 'Female', 5);
-INSERT INTO LLR_info VALUES(13,'William','Gonzalez', '1986-02-20', 58000, TRUE, '147 Maple St',now(), 'Male', 4);
-INSERT INTO LLR_info VALUES(14,'Isabella','Wilson', '1994-10-05', 49000, TRUE, '258 Cedar St',now(), 'Female', 3);
-INSERT INTO LLR_info VALUES(15,'Lucas','Anderson', '1983-07-14', 70000, TRUE, '369 Birch St',now(), 'Male', 5);
-INSERT INTO LLR_info VALUES(16,'Mia','Thomas', '1989-11-11', 62000, TRUE, '951 Spruce St',now(), 'Female', 4);
+INSERT INTO LLR_info VALUES(6,'Emily', 'Wilson', '1988-04-25', 65000,TRUE,'987 Birch St',now(), 'Female',5);
+INSERT INTO LLR_info VALUES(7,'David','Miller', '1992-01-18', 48000,TRUE,'159 Spruce St',now(), 'Male', 4);
+INSERT INTO LLR_info VALUES(8,'Sophia','Garcia', '1980-12-12', 55000,FALSE,'753 Willow St',now(), 'Female',3);
+INSERT INTO LLR_info VALUES(9,'Michael','Martinez', '1987-08-08', 70000,TRUE,'864 Fir St',now(), 'Male',5);
+INSERT INTO LLR_info VALUES(10,'Olivia','Rodriguez', '1993-09-21', 57000, TRUE,'951 Elm St',now(), 'Female',4);
+INSERT INTO LLR_info VALUES(11,'James','Hernandez', '1984-06-30', 65000, FALSE,'258 Oak St',now(), 'Male',3);
+INSERT INTO LLR_info VALUES(12,'Ava','Lopez', '1991-05-15', 54000, TRUE,'369 Pine St',now(), 'Female', 5);
+INSERT INTO LLR_info VALUES(13,'William','Gonzalez', '1986-02-20', 58000, TRUE,'147 Maple St',now(), 'Male', 4);
+INSERT INTO LLR_info VALUES(14,'Isabella','Wilson', '1994-10-05', 49000, TRUE,'258 Cedar St',now(), 'Female', 3);
+INSERT INTO LLR_info VALUES(15,'Lucas','Anderson', '1983-07-14', 70000, TRUE,'369 Birch St',now(), 'Male', 5);
+INSERT INTO LLR_info VALUES(16,'Mia','Thomas', '1989-11-11', 62000, TRUE,'951 Spruce St',now(), 'Female', 4);
 INSERT INTO LLR_info VALUES(17,'Ethan','Jackson', '1990-03-05', 51000, TRUE, '753 Elm St',now(), 'Male', 3);
 INSERT INTO LLR_info VALUES(18,'Charlotte','White', '1982-12-25', 68000, TRUE, '159 Oak St',now(), 'Female', 5);
 INSERT INTO LLR_info VALUES(19,'Liam','Harris', '1985-06-17', 53000, TRUE, '864 Cedar St',now(), 'Male', 4);
 INSERT INTO LLR_info VALUES(20,'Amelia','Clark', '1992-04-10', 59000, FALSE, '321 Birch St',now(), 'Female', 3);
+select * from LLR_info;
+INSERT INTO LLR_info (LLR_id,first_name)values (1,'John')on duplicate key update first_name='bhavya';
+INSERT INTO LLR_info(LLR_id,first_name)values (1,'marry')on duplicate key update first_name='bhavya';
+REPLACE INTO LLR_info(LLR_id,first_name,last_name,birth_date,salary,is_active,address,created_at,gender,rating)
+values(22,'liam','harries','1984-07-20',67000,true,'bangalore',now(),'Female',3);
+REPLACE INTO LLR_info(LLR_id,first_name,last_name,birth_date,salary,is_active,address,created_at,gender,rating)
+values(2,'liam','harries','1984-07-20',67000,true,'bangalore',now(),'Female',3);
 
-    
 CREATE TABLE LLR_TEST_INFO (test_id INT PRIMARY KEY,ll_id INT,test_name VARCHAR(100),test_date DATE,result VARCHAR(20),
     duration INT,created_at TIMESTAMP,test_type VARCHAR(50),status VARCHAR(20),modified_at TIMESTAMP,
     FOREIGN KEY (ll_id) REFERENCES LLR_info(LLR_id));
@@ -48,7 +54,9 @@ INSERT INTO LLR_TEST_INFO VALUES(27, 17, 'Road Test', '2024-07-17', 'Fail', 45, 
 INSERT INTO LLR_TEST_INFO VALUES(28, 18, 'Vision Test', '2024-07-18', 'Pass', 15, NOW(), 'Medical', 'Completed', NOW());
 INSERT INTO LLR_TEST_INFO VALUES(29, 19, 'Written Exam', '2024-07-19', 'Pass', 60, NOW(), 'Theory', 'Completed', NOW());
 INSERT INTO LLR_TEST_INFO VALUES(30, 20, 'Road Test', '2024-07-20', 'Pass', 45, NOW(), 'Practical', 'Completed', NOW());
-
+SELECT * FROM LLR_TEST_INFO;
+INSERT INTO LLR_TEST_INFO(test_id,ll_id)values(12,2)on duplicate key update ll_id=5; 
+REPLACE INTO LLR_TEST_INFO(test_id,ll_id,result,status)VALUES(11,'2','fail','not completed');
     
 CREATE TABLE driving_license_info (dk_id INT PRIMARY KEY,test_id INT,llr_id INT,license_number VARCHAR(20),issue_date DATE,
     expiration_date DATE,license_class VARCHAR(10),issued_by VARCHAR(100),status VARCHAR(20),created_by VARCHAR(20),
@@ -75,7 +83,9 @@ INSERT INTO driving_license_info VALUES(47,27,17, 'DL998877554', '2024-08-17', '
 INSERT INTO driving_license_info VALUES(48,28,18, 'DL554411223', '2024-08-18', '2029-08-18', 'Motorcycle', 'RTO Vadodara', 'Active', 'AdminUser');
 INSERT INTO driving_license_info VALUES(49,29,19, 'DL665588776', '2024-08-19', '2029-08-19', 'Private', 'RTO Visakhapatnam', 'Active', 'AdminUser');
 INSERT INTO driving_license_info VALUES(50,30,20, 'DL221122334', '2024-08-20', '2029-08-20', 'Commercial', 'RTO Kochi', 'Active', 'AdminUser');
-
+select * from driving_license_info;
+INSERT INTO driving_license_info(dk_id,llr_id)values(41,5)on duplicate key update llr_id=5;
+REPLACE INTO driving_license_info(dk_id,llr_id)VALUES(33,14);
     
 CREATE TABLE driving_license_test_info (test_info_id INT PRIMARY KEY,dl_id INT,test_date DATE,test_result VARCHAR(50),
     examiner_name VARCHAR(100),test_location VARCHAR(100),duration INT,test_time TIMESTAMP,score INT,feedback VARCHAR(20),
@@ -101,5 +111,6 @@ INSERT INTO driving_license_test_info VALUES(117, 47, '2024-08-26', 'Failed', 'V
 INSERT INTO driving_license_test_info VALUES(118, 48, '2024-08-27', 'Passed', 'Neha','Test Center Vadodara', 55, '2024-08-27 13:15:00', 84, 'Good');
 INSERT INTO driving_license_test_info VALUES(119, 49, '2024-08-28', 'Failed', 'Rohan','Test Center Visakhapatnam', 40, '2024-08-28 14:00:00', 50, 'Average');
 INSERT INTO driving_license_test_info VALUES(120, 50, '2024-08-29', 'Passed', 'Shalini','Test Center Kochi', 60, '2024-08-29 09:45:00', 93, 'Excellent');
-
-
+SELECT * FROM driving_license_test_info;
+INSERT INTO driving_license_test_info(test_info_id,duration)values(101,60)on duplicate key update dl_id=32;
+REPLACE INTO driving_license_test_info(test_info_id,duration)VALUES(106,38);
